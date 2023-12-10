@@ -27,14 +27,16 @@ function App() {
   );
 }
 
-function NewsItems({items}){
+function NewsItems({items}) {
   return (
-    <div className = "NewsItems">
-      {items.map((item, i) => (
-        <ArticleInfo key = {i} item={item}/>
-      ))}
+    <div className="NewsItems">
+      {items && items.length > 0 ? (
+        items.map((item, i) => <ArticleInfo key={i} item={item} />)
+      ) : (
+        <p>No news available for the selected category.</p>
+      )}
     </div>
-  )
+  );
 }
 
 export default App;
