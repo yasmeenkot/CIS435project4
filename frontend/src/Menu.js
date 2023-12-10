@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Menu({ setCategory, activeCategory }) {
-  const categories = ['general', 'business', 'entertainment', 'health', 'science', 'sports', 'technology'];
+  const categories = ['General', 'Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology'];
 
   return (
     <div className="Menu">
