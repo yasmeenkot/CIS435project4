@@ -12,7 +12,8 @@ function App() {
   fetch(`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=a3c18032f5804dfdb6402488376b796e`)
     .then(response => response.json())
     .then(data => {
-      setItems(data.articles)
+      const filteredItems = data.articles.filter(item => !item.title.toLowerCase().includes("removed"));
+      setItems(filteredItems)
     })
     .catch(error => {
       console.error("Error fetching data:", error);
