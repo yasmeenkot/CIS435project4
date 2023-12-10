@@ -32,3 +32,38 @@ button {
 button:hover {
   background-color: #4f7085;
 }
+
+.Menu button.active {
+  background-color: #4f7085;
+}
+
+.NewsItems {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.ArticleInfo {
+  width: 300px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+a {
+  color: #3498db;
+  text-decoration: none;
+  display: block;
+  margin-top: 10px;
+}
+
+a:hover {
+  text-decoration: underline;
+}

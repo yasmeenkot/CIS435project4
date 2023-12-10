@@ -6,9 +6,10 @@ import ArticleInfo from './ArticleInfo';
 function App() {
   const [items, setItems] = useState([])
   const [category, setCategory] = useState("general")
+  const [active, setActive] = useState("general")
 
   useEffect(() => {
-  fetch(`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=a5ced9553964428fa6dc4a7aec26f6fe`)
+  fetch(`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=a3c18032f5804dfdb6402488376b796e`)
     .then(response => response.json())
     .then(data => {
       setItems(data.articles)
@@ -16,12 +17,13 @@ function App() {
     .catch(error => {
       console.error("Error fetching data:", error);
     });
+    setActive(category);
   },[category])
   
   return (
     <div className="App">
       <h1>News Site</h1>
-      <Menu setCategory={setCategory} />
+      <Menu setCategory={setCategory} activeCategory={active}/>
       <NewsItems items={items} />
     </div>
   );
