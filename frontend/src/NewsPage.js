@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import './App.css';
+import { useNavigate } from 'react-router-dom';
+import './NewsPage.css';
 import Menu from './Menu';
 import ArticleInfo from './ArticleInfo';
 
@@ -7,6 +8,11 @@ function NewsPage() {
     const [items, setItems] = useState([])
     const [category, setCategory] = useState("general")
     const [active, setActive] = useState("general")
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+      navigate('/login');
+    }
 
     useEffect(() => {
         fetch(`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=a3c18032f5804dfdb6402488376b796e`)
@@ -23,6 +29,9 @@ function NewsPage() {
 
     return (
         <div className="App">
+          <div className='logout-button-container'>
+            <button className='logout-button' onClick={handleLogout}>Logout</button>
+          </div>
             <h1>News Site</h1>
             <Menu setCategory={setCategory} activeCategory={active}/>
             <NewsItems items={items} />
